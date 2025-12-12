@@ -18,10 +18,20 @@ if (file_exists($envFile)) {
 }
 
 // Database configuration (prevent redefinition)
-if (!defined('DB_HOST')) define('DB_HOST', $_ENV['DB_HOST'] ?? 'localhost');
-if (!defined('DB_NAME')) define('DB_NAME', $_ENV['DB_NAME'] ?? 'haramaya_pharma');
-if (!defined('DB_USER')) define('DB_USER', $_ENV['DB_USER'] ?? 'root');
-if (!defined('DB_PASS')) define('DB_PASS', $_ENV['DB_PASS'] ?? '');
+// Check for Heroku DATABASE_URL first
+if (isset($_ENV['DATABASE_URL'])) {
+    $url = parse_url($_ENV['DATABASE_URL']);
+    if (!defined('DB_HOST')) define('DB_HOST', $url['host']);
+    if (!defined('DB_NAME')) define('DB_NAME', ltrim($url['path'], '/'));
+    if (!defined('DB_USER')) define('DB_USER', $url['user']);
+    if (!defined('DB_PASS')) define('DB_PASS', $url['pass']);
+} else {
+    // Fallback to individual environment variables
+    if (!defined('DB_HOST')) define('DB_HOST', $_ENV['DB_HOST'] ?? 'localhost');
+    if (!defined('DB_NAME')) define('DB_NAME', $_ENV['DB_NAME'] ?? 'haramaya_pharma');
+    if (!defined('DB_USER')) define('DB_USER', $_ENV['DB_USER'] ?? 'root');
+    if (!defined('DB_PASS')) define('DB_PASS', $_ENV['DB_PASS'] ?? '');
+}
 if (!defined('DB_CHARSET')) define('DB_CHARSET', 'utf8mb4');
 
 // PDO options for security and performance

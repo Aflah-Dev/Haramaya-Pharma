@@ -1,0 +1,14 @@
+{
+    "name": "haramaya/pharma-management",
+    "description": "Haramaya Pharma Management System",
+    "type": "project",
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {},
+    "scripts": {
+        "post-install-cmd": [
+            "php -r \"copy('.env.example', '.env');\""
+        ]
+    }
+}
