@@ -72,6 +72,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             width: 100%;
             max-width: 420px;
+            margin: 1rem;
+        }
+        
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 1.5rem;
+                margin: 0.5rem;
+                border-radius: 8px;
+            }
+            .login-header h1 {
+                font-size: 1.5rem;
+            }
         }
         .login-header {
             text-align: center;

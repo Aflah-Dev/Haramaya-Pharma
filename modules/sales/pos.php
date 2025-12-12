@@ -267,7 +267,7 @@ $products = $pdo->query("
 ")->fetchAll();
 ?>
 
-<div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 1.5rem;">
+<div class="pos-container">
     <!-- Product Selection -->
     <div class="card">
         <div class="card-header">
@@ -280,7 +280,7 @@ $products = $pdo->query("
         </div>
         
         <div class="table-container">
-            <table class="data-table" id="productTable">
+            <table class="data-table mobile-stack-table" id="productTable">
                 <thead>
                     <tr>
                         <th>Product</th>
@@ -292,17 +292,17 @@ $products = $pdo->query("
                 <tbody>
                     <?php foreach ($products as $product): ?>
                     <tr>
-                        <td>
+                        <td data-label="Product">
                             <strong><?php echo clean($product['product_name']); ?></strong><br>
                             <small><?php echo clean($product['generic_name']); ?></small>
                         </td>
-                        <td>ETB <?php echo number_format($product['unit_price'], 2); ?></td>
-                        <td>
+                        <td data-label="Price">ETB <?php echo number_format($product['unit_price'], 2); ?></td>
+                        <td data-label="Stock">
                             <span class="badge <?php echo $product['available_stock'] > 0 ? 'badge-success' : 'badge-danger'; ?>">
                                 <?php echo $product['available_stock']; ?>
                             </span>
                         </td>
-                        <td>
+                        <td data-label="Action">
                             <form method="POST" style="display: inline;">
                                 <?php echo csrf_field(); ?>
                                 <input type="hidden" name="action" value="add_to_cart">
@@ -335,7 +335,7 @@ $products = $pdo->query("
             </div>
             
             <div class="table-container">
-                <table class="data-table">
+                <table class="data-table mobile-stack-table">
                     <thead>
                         <tr>
                             <th>Item</th>
@@ -350,10 +350,10 @@ $products = $pdo->query("
                         <?php else: ?>
                             <?php foreach ($cart_details as $item): ?>
                             <tr>
-                                <td><?php echo clean($item['product']['product_name']); ?></td>
-                                <td><?php echo $item['quantity']; ?></td>
-                                <td>ETB <?php echo number_format($item['line_total'], 2); ?></td>
-                                <td>
+                                <td data-label="Item"><?php echo clean($item['product']['product_name']); ?></td>
+                                <td data-label="Qty"><?php echo $item['quantity']; ?></td>
+                                <td data-label="Total">ETB <?php echo number_format($item['line_total'], 2); ?></td>
+                                <td data-label="Remove">
                                     <form method="POST" style="display: inline;">
                                         <?php echo csrf_field(); ?>
                                         <input type="hidden" name="action" value="remove_from_cart">

@@ -84,19 +84,70 @@ function confirmDeleteActions() {
  */
 function initializeMobileSidebar() {
     const sidebar = document.querySelector('.sidebar');
-    const toggleBtn = document.getElementById('sidebarToggle');
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    const overlay = document.querySelector('.sidebar-overlay');
     
     if (toggleBtn && sidebar) {
-        toggleBtn.addEventListener('click', function() {
-            sidebar.classList.toggle('active');
+        // Toggle sidebar
+        toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isOpen = sidebar.classList.contains('mobile-open');
+            
+            if (isOpen) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
         });
         
-        // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
-                    sidebar.classList.remove('active');
+        function openSidebar() {
+            sidebar.classList.add('mobile-open');
+            if (overlay) {
+                overlay.classList.add('active');
+            }
+            document.body.classList.add('sidebar-open');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeSidebar() {
+            sidebar.classList.remove('mobile-open');
+            if (overlay) {
+                overlay.classList.remove('active');
+            }
+            document.body.classList.remove('sidebar-open');
+            document.body.style.overflow = '';
+        }
+        
+        // Close sidebar when clicking overlay
+        if (overlay) {
+            overlay.addEventListener('click', function() {
+                closeSidebar();
+            });
+        }
+        
+        // Close sidebar when clicking nav links on mobile
+        const navLinks = sidebar.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    closeSidebar();
                 }
+            });
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                closeSidebar();
+            }
+        });
+        
+        // Handle escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && sidebar.classList.contains('mobile-open')) {
+                closeSidebar();
             }
         });
     }

@@ -31,8 +31,10 @@ $page_title = $page_title ?? 'Dashboard';
         <div class="main-content">
             <header class="top-header">
                 <div class="header-title">
+                    <button class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
                     <h1><?php echo clean($page_title); ?></h1>
-
                 </div>
                 <div class="header-actions">
                     <div class="user-info">

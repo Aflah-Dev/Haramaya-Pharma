@@ -8,6 +8,9 @@ $base = '../..';
 
 
 ?>
+<!-- Mobile sidebar overlay -->
+<div class="sidebar-overlay"></div>
+
 <aside class="sidebar">
     <div class="sidebar-header">
         <img src="<?php echo $base; ?>/assets/images/image.jpg" alt="Haramaya Pharma" class="logo-img" 

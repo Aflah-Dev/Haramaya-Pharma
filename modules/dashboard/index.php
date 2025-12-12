@@ -87,7 +87,7 @@ try {
     </div>
 </div>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+<div class="dashboard-grid">
     <!-- Recent Sales -->
     <div class="card">
         <div class="card-header">
@@ -95,7 +95,7 @@ try {
             <a href="../sales/history.php" class="btn btn-secondary">View All</a>
         </div>
         <div class="table-container">
-            <table class="data-table">
+            <table class="data-table mobile-stack-table">
                 <thead>
                     <tr>
                         <th>Sale #</th>
@@ -110,10 +110,10 @@ try {
                     <?php else: ?>
                         <?php foreach ($recent_sales as $sale): ?>
                         <tr>
-                            <td><?php echo clean($sale['sale_number']); ?></td>
-                            <td><?php echo clean($sale['customer_name'] ?? 'Walk-in'); ?></td>
-                            <td>ETB <?php echo number_format($sale['total_amount'], 2); ?></td>
-                            <td><?php echo date('M d, H:i', strtotime($sale['sale_date'])); ?></td>
+                            <td data-label="Sale #"><?php echo clean($sale['sale_number']); ?></td>
+                            <td data-label="Customer"><?php echo clean($sale['customer_name'] ?? 'Walk-in'); ?></td>
+                            <td data-label="Amount">ETB <?php echo number_format($sale['total_amount'], 2); ?></td>
+                            <td data-label="Date"><?php echo date('M d, H:i', strtotime($sale['sale_date'])); ?></td>
                         </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -129,7 +129,7 @@ try {
             <a href="../stock/expiry-alerts.php" class="btn btn-danger">View All</a>
         </div>
         <div class="table-container">
-            <table class="data-table">
+            <table class="data-table mobile-stack-table">
                 <thead>
                     <tr>
                         <th>Product</th>
@@ -144,14 +144,14 @@ try {
                     <?php else: ?>
                         <?php foreach ($critical_items as $item): ?>
                         <tr>
-                            <td><?php echo clean($item['product_name']); ?></td>
-                            <td><?php echo clean($item['batch_number']); ?></td>
-                            <td>
+                            <td data-label="Product"><?php echo clean($item['product_name']); ?></td>
+                            <td data-label="Batch"><?php echo clean($item['batch_number']); ?></td>
+                            <td data-label="Days Left">
                                 <span class="badge <?php echo $item['days_left'] < 15 ? 'badge-danger' : 'badge-warning'; ?>">
                                     <?php echo $item['days_left']; ?> days
                                 </span>
                             </td>
-                            <td><?php echo $item['quantity_remaining']; ?></td>
+                            <td data-label="Qty"><?php echo $item['quantity_remaining']; ?></td>
                         </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
