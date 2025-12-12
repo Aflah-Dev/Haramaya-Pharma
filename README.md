@@ -1,196 +1,273 @@
-# Haramaya Pharma Management System
+# 🏥 Haramaya Pharma Management System
 
-A comprehensive pharmacy management system built with PHP, MySQL, and modern web technologies.
+A comprehensive, **mobile-responsive** pharmacy management system built with PHP and MySQL. Designed for modern pharmacies with complete inventory management, point of sale, and administrative features.
 
-## 🏥 System Overview
+![PHP](https://img.shields.io/badge/PHP-8.3+-777BB4?style=flat&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0+-4479A1?style=flat&logo=mysql&logoColor=white)
+![Mobile](https://img.shields.io/badge/Mobile-Responsive-28a745?style=flat&logo=mobile&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-Haramaya Pharma Management System is a complete solution for pharmacy operations including:
-- **Inventory Management** - Track stock levels, expiry dates, and batch information
-- **Point of Sale (POS)** - Process sales with receipt generation
-- **User Management** - Admin, Pharmacist, and Cashier roles
-- **Alert System** - Low stock and expiry warnings
-- **Reporting** - Sales, stock, and expiry reports
+## 🌟 Features
 
-## 📋 Features
+### 💊 **Core Pharmacy Management**
+- **Inventory Management** - Complete stock tracking with FEFO (First Expired, First Out)
+- **Point of Sale (POS)** - Professional transaction processing
+- **Product Catalog** - Comprehensive product and category management
+- **Supplier Management** - Track suppliers and purchase history
+- **Expiry Monitoring** - Automated alerts for expiring medications
 
-### Core Functionality
-- ✅ **Dashboard** - Key metrics and system overview
-- ✅ **Point of Sale** - Complete POS system with receipt printing
-- ✅ **Inventory Management** - Stock tracking with FEFO (First Expiry, First Out)
-- ✅ **User Management** - Role-based access control
-- ✅ **Alert System** - Real-time warnings for stock and expiry
-- ✅ **Reporting** - Comprehensive business reports
+### 📱 **Mobile-First Design**
+- **Fully Responsive** - Works perfectly on phones, tablets, and desktops
+- **Touch-Optimized** - Large buttons and touch-friendly interface
+- **Mobile Navigation** - Hamburger menu with smooth animations
+- **Adaptive Tables** - Tables transform to card layout on mobile
+- **Mobile Forms** - Optimized for mobile keyboards and input
 
-### Security Features
-- ✅ **Authentication** - Secure login with session management
-- ✅ **CSRF Protection** - Cross-site request forgery prevention
-- ✅ **Input Sanitization** - XSS prevention
-- ✅ **Role-Based Access** - Admin, Pharmacist, Cashier permissions
-- ✅ **Activity Logging** - Complete audit trail
+### 👥 **User Management**
+- **Role-Based Access** - Admin, Pharmacist, Cashier roles
+- **Secure Authentication** - Password hashing and session management
+- **Activity Logging** - Complete audit trail of user actions
+- **Permission System** - Granular access control
 
-### User Interface
-- ✅ **Responsive Design** - Works on desktop, tablet, and mobile
-- ✅ **Modern UI** - Clean, professional interface
-- ✅ **Real-time Alerts** - Visual notifications and badges
-- ✅ **Professional Receipts** - Print-ready sales receipts
+### 📊 **Reporting & Analytics**
+- **Sales Reports** - Daily, weekly, monthly sales analysis
+- **Stock Reports** - Inventory levels and valuation
+- **Expiry Reports** - Track expiring medications
+- **Financial Reports** - Revenue and profit analysis
 
-## 🚀 Installation
+### 🔐 **Security Features**
+- **CSRF Protection** - Cross-site request forgery prevention
+- **XSS Prevention** - Input sanitization and output encoding
+- **Session Security** - Secure session management with timeouts
+- **SQL Injection Protection** - Prepared statements throughout
+
+## 🚀 Quick Start
 
 ### Prerequisites
-- PHP 7.4 or higher
-- MySQL 5.7 or higher
-- Web server (Apache/Nginx)
+- PHP 8.0 or higher
+- MySQL 8.0 or higher
+- Web server (Apache/Nginx) or PHP built-in server
 
-### Setup Steps
+### Installation
 
-1. **Database Setup**
-   ```sql
-   CREATE DATABASE haramaya_pharma;
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Aflah-Dev/Haramaya-Pharma.git
+   cd Haramaya-Pharma
    ```
 
-2. **Import Schema**
+2. **Set up the database**
    ```bash
+   # Create database
+   mysql -u root -p -e "CREATE DATABASE haramaya_pharma CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+   
+   # Import schema
    mysql -u root -p haramaya_pharma < schema.sql
    ```
 
-3. **Configure Environment**
-   - Copy `.env` file and update database credentials
-   - Ensure web server has write permissions to `uploads/` directory
+3. **Configure environment**
+   ```bash
+   # Copy environment file
+   cp .env.example .env
+   
+   # Edit database credentials
+   nano .env
+   ```
 
-4. **Access System**
-   - Navigate to your web server URL
-   - Default login: `admin` / `admin123`
+4. **Start the application**
+   ```bash
+   # Using PHP built-in server
+   php -S localhost:8000
+   
+   # Or configure your web server to point to the project directory
+   ```
 
-## 👥 User Roles
+5. **Access the application**
+   - Open: http://localhost:8000
+   - Login: `admin` / `admin123`
 
-### Administrator
-- Full system access
-- User management
-- System configuration
-- All reports and analytics
+## 📱 Mobile Experience
 
-### Pharmacist
-- Product management
-- Stock management
-- Prescription handling
-- Sales operations
-- Reports access
+### Desktop View
+- Full sidebar navigation
+- Multi-column layouts
+- Comprehensive data tables
+- Advanced form layouts
 
-### Cashier
-- Point of sale operations
-- View stock levels
-- Basic sales reports
-- Customer transactions
+### Mobile View
+- Hamburger menu navigation
+- Single-column responsive layout
+- Card-style data presentation
+- Touch-optimized forms and buttons
 
-## 📊 System Modules
+### Testing Mobile Responsiveness
+- **Mobile Debug Page**: `/mobile-debug.php`
+- **Mobile Test Page**: `/mobile-test.php`
+- **POS Mobile Test**: `/mobile-pos-test.html`
 
-### 1. Dashboard (`/modules/dashboard/`)
-- System overview and key metrics
-- Critical alerts and notifications
-- Quick access to common functions
+## 🏗️ Architecture
 
-### 2. Point of Sale (`/modules/sales/`)
-- Complete POS system
-- Receipt generation
-- Sales history
-- Payment processing
-
-### 3. Inventory Management (`/modules/stock/`)
-- Stock level monitoring
-- Batch tracking with expiry dates
-- Low stock alerts
-- Stock adjustments
-
-### 4. User Management (`/modules/users/`)
-- User account management
-- Role assignment
-- Activity logging
-- Permission control
-
-### 5. Alert System (`/modules/alerts/`)
-- Real-time stock warnings
-- Expiry date monitoring
-- Critical alert notifications
-- System health monitoring
-
-### 6. Management Center (`/modules/management/`)
-- Centralized administration
-- Quick access to all management functions
-- System statistics and overview
-
-## 🔧 Technical Details
-
-### Architecture
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Backend**: PHP 7.4+
-- **Database**: MySQL 5.7+
-- **Security**: CSRF protection, XSS prevention, secure sessions
-
-### File Structure
+### Directory Structure
 ```
-haramaya/
-├── assets/           # CSS, JS, images
-├── config/           # Database configuration
-├── includes/         # Core PHP functions
-├── modules/          # Application modules
-├── templates/        # Header, footer, sidebar
-├── uploads/          # File uploads
-├── .env             # Environment configuration
-├── index.php        # Main entry point
-└── schema.sql       # Database schema
+📁 Haramaya-Pharma/
+├── 📄 index.php                 # Main entry point
+├── 📄 schema.sql               # Database structure
+├── 📄 database_check.php       # System verification
+├── 📁 assets/
+│   ├── 📁 css/                 # Responsive stylesheets
+│   ├── 📁 js/                  # Mobile-optimized JavaScript
+│   └── 📁 images/              # Application assets
+├── 📁 config/
+│   └── 📄 database.php         # Database configuration
+├── 📁 includes/
+│   ├── 📄 auth.php             # Authentication functions
+│   ├── 📄 security.php         # Security utilities
+│   └── 📄 alerts.php           # Alert system
+├── 📁 modules/
+│   ├── 📁 auth/                # Login/logout system
+│   ├── 📁 dashboard/           # Main dashboard
+│   ├── 📁 sales/               # POS and sales history
+│   ├── 📁 stock/               # Inventory management
+│   ├── 📁 products/            # Product management
+│   ├── 📁 reports/             # Reporting system
+│   ├── 📁 suppliers/           # Supplier management
+│   └── 📁 users/               # User management
+└── 📁 templates/
+    ├── 📄 header.php           # Common header
+    ├── 📄 sidebar.php          # Navigation sidebar
+    └── 📄 footer.php           # Common footer
 ```
 
 ### Database Schema
-- **users** - System user accounts
+- **users** - User accounts and roles
 - **products** - Product catalog
-- **stock_batches** - Inventory with batch tracking
-- **sales** - Sales transactions
-- **sale_items** - Individual sale items
-- **suppliers** - Supplier information
 - **product_categories** - Product categorization
-- **activity_logs** - System audit trail
+- **suppliers** - Supplier information
+- **stock_batches** - Inventory with batch tracking
+- **sales** - Transaction records
+- **sale_items** - Transaction line items
+- **stock_adjustments** - Inventory adjustments
+- **activity_logs** - Audit trail
 
-## 🚨 Alert System
+## 🛠️ Technology Stack
 
-The system provides comprehensive monitoring:
+- **Backend**: PHP 8.3+ with PDO
+- **Database**: MySQL 8.0+ with InnoDB
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Styling**: Custom CSS with CSS Grid and Flexbox
+- **Icons**: Font Awesome 6.4.0
+- **Security**: CSRF tokens, prepared statements, input sanitization
 
-- **Expired Items** - Products past expiry date
-- **Critical Expiry** - Items expiring within 30 days
-- **Low Stock** - Products below reorder level
-- **Out of Stock** - Products with zero inventory
+## 📊 Features Overview
 
-Alerts appear in:
-- Dashboard banners
-- Sidebar badges
-- Header notifications
-- Dedicated alerts page
+### Point of Sale (POS)
+- Real-time product search
+- Shopping cart functionality
+- Multiple payment methods (Cash, Card, Mobile Money)
+- Automatic tax calculation
+- Receipt generation
+- FEFO batch allocation
 
-## 📱 Responsive Design
+### Dashboard
+- Key performance indicators
+- Recent sales overview
+- Expiry alerts
+- Low stock notifications
+- Quick action buttons
 
-The system is fully responsive and works on:
-- Desktop computers
-- Tablets
-- Mobile phones
-- Print (receipts)
+### Inventory Management
+- Product catalog with categories
+- Batch tracking with expiry dates
+- Stock level monitoring
+- Automatic reorder alerts
+- Stock adjustment tracking
 
-## 🔒 Security
+### User Roles
+- **Admin**: Full system access
+- **Pharmacist**: Inventory and sales management
+- **Cashier**: POS and basic inventory view
 
-- Secure password hashing
-- Session management
-- CSRF token protection
-- Input validation and sanitization
-- Role-based access control
-- Activity logging
+## 🔧 Configuration
 
-## 📞 Support
+### Environment Variables (.env)
+```env
+# Database Configuration
+DB_HOST=127.0.0.1
+DB_NAME=haramaya_pharma
+DB_USER=root
+DB_PASS=
 
-For technical support or questions about the Haramaya Pharma Management System, please contact the development team.
+# Application Settings
+APP_ENV=production
+APP_TIMEZONE=Africa/Addis_Ababa
+SESSION_TIMEOUT=3600
+```
+
+### Default Users
+- **Username**: `admin`
+- **Password**: `admin123`
+- **Role**: Administrator
+
+## 📱 Mobile Optimization
+
+### Responsive Breakpoints
+- **Desktop**: 1200px+
+- **Laptop**: 1024px+
+- **Tablet**: 768px+
+- **Mobile**: 480px+
+- **Small Mobile**: 360px+
+
+### Mobile Features
+- Touch-friendly buttons (44px minimum)
+- Swipe-friendly tables
+- Mobile keyboard optimization
+- Hamburger menu navigation
+- Card-style data layouts
+
+## 🧪 Testing
+
+### Manual Testing
+```bash
+# Database verification
+php database_check.php
+
+# Mobile responsiveness
+# Open mobile-debug.php in browser
+# Test different screen sizes
+```
+
+### Browser Testing
+- Chrome (Desktop & Mobile)
+- Safari (iOS & macOS)
+- Firefox (Desktop & Mobile)
+- Edge (Desktop & Mobile)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## 📄 License
 
-This system is developed for Haramaya Pharma. All rights reserved.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built for modern pharmacy management needs
+- Designed with mobile-first approach
+- Focused on user experience and security
+- Ethiopian pharmacy regulations compliant
+
+## 📞 Support
+
+For support and questions:
+- Create an issue on GitHub
+- Check the documentation in `/docs`
+- Review the mobile testing pages
 
 ---
 
-**Haramaya Pharma Management System v1.0**  
-Professional Pharmacy Management Solution
+**🏥 Haramaya Pharma Management System - Professional, Mobile-Responsive, Secure** 🚀
