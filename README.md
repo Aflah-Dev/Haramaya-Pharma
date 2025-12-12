@@ -1,4 +1,4 @@
-# 🏥 Haramaya Pharma Management System
+# 🏥 Haramaya Pharmacy Management System
 
 A comprehensive, **mobile-responsive** pharmacy management system built with PHP and MySQL. Designed for modern pharmacies with complete inventory management, point of sale, and administrative features.
 
