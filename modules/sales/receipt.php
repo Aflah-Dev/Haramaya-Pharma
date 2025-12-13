@@ -201,7 +201,7 @@ $items = $stmt->fetchAll();
             <span>Tax (15%):</span>
             <span>ETB <?php echo number_format($sale['tax'], 2); ?></span>
         </div>
-        <?php if ($sale['discount'] > 0): ?>
+        <?php if (isset($sale['discount']) && $sale['discount'] > 0): ?>
         <div>
             <span>Discount:</span>
             <span>ETB <?php echo number_format($sale['discount'], 2); ?></span>
