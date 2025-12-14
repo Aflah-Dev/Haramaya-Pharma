@@ -1,8 +1,8 @@
 <?php
-/**
- * HARAMAYA PHARMA - User Activity Log
- * Track user actions and system events
- */
+
+// HARAMAYA PHARMA - User Activity Log
+// Track user actions and system events
+
 
 $page_title = 'Activity Log';
 $pdo = require __DIR__ . '/../../config/database.php';
