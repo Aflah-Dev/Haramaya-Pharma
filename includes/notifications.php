@@ -5,7 +5,7 @@
  */
 
 /**
- * Send alert notification (placeholder for email system)
+ * Send alert notification
  */
 function send_alert_notification($type, $message, $recipients = []) {
     // Log the notification

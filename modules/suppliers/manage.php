@@ -19,6 +19,8 @@ require_role('admin');
     background: #ffffff;
 }
 
+
+/* header card style */
 .card-header {
     background: linear-gradient(135deg, #4A6FA5 0%, #2C3E50 100%);
     color: white;

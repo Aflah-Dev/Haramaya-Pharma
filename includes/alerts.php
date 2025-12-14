@@ -5,7 +5,7 @@
  */
 
 /**
- * Get low stock alerts
+ * Get low stock alert
  */
 function get_low_stock_alerts($pdo) {
     try {

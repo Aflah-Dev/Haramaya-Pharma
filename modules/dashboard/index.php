@@ -1,8 +1,8 @@
 <?php
-/**
- * HARAMAYA PHARMA - Main Dashboard
- * Overview of key metrics and alerts
- */
+
+
+// HARAMAYA PHARMA - Main Dashboard
+ // Overview of key metrics and alerts
 
 $page_title = 'Dashboard';
 $pdo = require __DIR__ . '/../../config/database.php';

@@ -1,6 +1,6 @@
 <?php
 /**
- * HARAMAYA PHARMA - Security Functions
+ * HARAMAYA PHARMA - Comprehensive Security Functions
  * XSS Prevention, CSRF Protection, Input Sanitization
  */
 
