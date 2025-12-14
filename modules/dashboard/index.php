@@ -33,7 +33,7 @@ try {
         error_log("Dashboard low stock error: " . $e->getMessage());
         $low_stock_count = 0;
     }
-    
+
     // Recent sales
     $recent_sales_query = "
         SELECT s.sale_number, s.sale_date, s.total_amount, s.customer_name, u.full_name as cashier

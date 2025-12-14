@@ -1,8 +1,7 @@
 <?php
-/**
- * HARAMAYA PHARMA - Management Dashboard
- * Unified management center for all administrative functions
- */
+
+// HARAMAYA PHARMA - Management Dashboard
+//Unified management center for all administrative functions
 
 $page_title = 'Management Center';
 $pdo = require __DIR__ . '/../../config/database.php';

@@ -1,14 +1,13 @@
 <?php
-/**
- * HARAMAYA PHARMA - Add Stock (GRN - Goods Received Note)
- */
+
+// HARAMAYA PHARMA - Add Stock (GRN - Goods Received Note)
 
 $page_title = 'Add Stock';
 $pdo = require __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../templates/header.php';
 require_role(['admin', 'pharmacist', 'inventory']);
 
-// Handle form submission
+//  Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!verify_csrf_token($_POST['csrf_token'] ?? '')) {
         die('CSRF token validation failed');
@@ -51,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
     }
-}
 
+}
 // Get products
 $products = $pdo->query("SELECT * FROM products WHERE is_active = 1 ORDER BY product_name")->fetchAll();
 
@@ -85,6 +84,7 @@ $suppliers = $pdo->query("SELECT * FROM suppliers WHERE is_active = 1 ORDER BY s
                 </select>
             </div>
             
+
             <div class="form-group">
                 <label class="form-label">Batch Number *</label>
                 <input type="text" name="batch_number" class="form-control" required 
@@ -108,6 +108,7 @@ $suppliers = $pdo->query("SELECT * FROM suppliers WHERE is_active = 1 ORDER BY s
                 <input type="number" name="quantity" class="form-control" required min="1">
             </div>
             
+
             <div class="form-group">
                 <label class="form-label">Unit Cost (ETB) *</label>
                 <input type="number" step="0.01" name="unit_cost" class="form-control" required min="0.01">
@@ -148,12 +149,12 @@ $suppliers = $pdo->query("SELECT * FROM suppliers WHERE is_active = 1 ORDER BY s
         </div>
     </form>
 </div>
-
 <!-- Recent Additions -->
 <div class="card">
     <div class="card-header">
         <h2 class="card-title">Recent Stock Additions</h2>
     </div>
+    
     
     <?php
     $recent = $pdo->query("
