@@ -92,7 +92,7 @@ function log_security_event($pdo, $user_id, $action, $details, $table_affected =
 /**
  * Check if IP is rate limited for login attempts
  * Implements exponential backoff
- */
+ */    
 function check_login_rate_limit($identifier) {
     $max_attempts = 5;
     $lockout_time = 900; // 15 minutes in seconds
@@ -100,6 +100,7 @@ function check_login_rate_limit($identifier) {
     // Use identifier (IP + username) for tracking
     $key = 'login_attempts_' . md5($identifier);
     
+
     if (!isset($_SESSION[$key])) {
         $_SESSION[$key] = [
             'attempts' => 0,
@@ -108,6 +109,7 @@ function check_login_rate_limit($identifier) {
         ];
     }
     
+
     $data = $_SESSION[$key];
     
     // Check if currently locked out
@@ -129,6 +131,7 @@ function check_login_rate_limit($identifier) {
         ];
         return ['allowed' => true, 'attempts' => 0];
     }
+
     
     // Check if max attempts reached
     if ($data['attempts'] >= $max_attempts) {
@@ -139,6 +142,7 @@ function check_login_rate_limit($identifier) {
             'remaining_time' => $lockout_time
         ];
     }
+    
     
     return [
         'allowed' => true,

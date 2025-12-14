@@ -166,6 +166,6 @@ try {
     
 } catch (Exception $e) {
     $pdo->rollBack();
-    echo "\n❌ Failed to add medicines: " . $e->getMessage() . "\n";
+    echo "\n Failed to add medicines: " . $e->getMessage() . "\n";
     exit(1);
 }

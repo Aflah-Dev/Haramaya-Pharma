@@ -46,7 +46,8 @@ $base = '../..';
                 <span>Sales History</span>
             </a>
         </div>
-        
+         
+         
         <!-- Stock Management Section -->
         <div class="nav-section">
             <div class="nav-section-title">Inventory</div>

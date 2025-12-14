@@ -6,7 +6,6 @@
  * For development, we'll use SQLite for simplicity.
  * For production, you can switch to MySQL/MariaDB.
  */
-
 // Database configuration
 $config = [
     'driver' => 'mysql',
@@ -35,7 +34,7 @@ try {
     error_log("Database connection failed: " . $e->getMessage());
     
     // In development, show the actual error
-    if (defined('APP_DEBUG') && APP_DEBUG) {
+    if (defined('APP_DEBUG') &&APP_DEBUG) {
         die("Database connection failed: " . $e->getMessage());
     }
     
