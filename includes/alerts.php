@@ -1,8 +1,7 @@
 <?php
-/**
- * HARAMAYA PHARMA - Alert System
- * Global functions for stock and expiry warnings
- */
+ 
+//HARAMAYA PHARMA - Alert System
+// Global functions for stock and expiry warnings
 
 
 /**
