@@ -1,7 +1,8 @@
 <?php
-/**
- * HARAMAYA PHARMA - Sales Report
- */
+
+
+//HARAMAYA PHARMA - Sales Report
+
 
 $page_title = 'Sales Report';
 $pdo = require __DIR__ . '/../../config/database.php';
