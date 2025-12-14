@@ -1,23 +1,22 @@
 # THIS PROJECT IS DONE BY GROUP FIVE MEMBERS
-# GROUP NAME           ID           Username
-# Abdurahman kedir     0494/16       @abdikee
-# kedeflah Nure        1724/16       @Aflah-Dev
-# Abdulhefiz Worko     0470/16       
-# Mulu Beshada         2093/16       @mulu31
-# Ana Umer             0706/16
 
+# GROUP NAME ID Username
 
+# Abdurahman kedir 0494/16 @abdikee
 
+# kedeflah Nure 1724/16 @Aflah-Dev
 
+# Abdulhefiz Worko 0470/16
 
+# Mulu Beshada 2093/16 @mulu31
 
+# Ana Umer 0706/16
 
-
-
+Application is live on https://haramaya-pharma.kesug.com/
 
 # 🏥 Haramaya Pharmacy Management System
 
-A comprehensive, **mobile-responsive** pharmacy management system built with PHP and MySQL. Designed for modern pharmacies with complete inventory management, point of sale, and administrative features. 
+A comprehensive, **mobile-responsive** pharmacy management system built with PHP and MySQL. Designed for modern pharmacies with complete inventory management, point of sale, and administrative features.
 
 ![PHP](https://img.shields.io/badge/PHP-8.3+-777BB4?style=flat&logo=php&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0+-4479A1?style=flat&logo=mysql&logoColor=white)
@@ -27,6 +26,7 @@ A comprehensive, **mobile-responsive** pharmacy management system built with PHP
 ## 🌟 Features
 
 ### 💊 **Core Pharmacy Management**
+
 - **Inventory Management** - Complete stock tracking with FEFO (First Expired, First Out)
 - **Point of Sale (POS)** - Professional transaction processing
 - **Product Catalog** - Comprehensive product and category management
@@ -34,6 +34,7 @@ A comprehensive, **mobile-responsive** pharmacy management system built with PHP
 - **Expiry Monitoring** - Automated alerts for expiring medications
 
 ### 📱 **Mobile-First Design**
+
 - **Fully Responsive** - Works perfectly on phones, tablets, and desktops
 - **Touch-Optimized** - Large buttons and touch-friendly interface
 - **Mobile Navigation** - Hamburger menu with smooth animations
@@ -41,18 +42,21 @@ A comprehensive, **mobile-responsive** pharmacy management system built with PHP
 - **Mobile Forms** - Optimized for mobile keyboards and input
 
 ### 👥 **User Management**
+
 - **Role-Based Access** - Admin, Pharmacist, Cashier roles
 - **Secure Authentication** - Password hashing and session management
 - **Activity Logging** - Complete audit trail of user actions
 - **Permission System** - Granular access control
 
 ### 📊 **Reporting & Analytics**
+
 - **Sales Reports** - Daily, weekly, monthly sales analysis
 - **Stock Reports** - Inventory levels and valuation
 - **Expiry Reports** - Track expiring medications
 - **Financial Reports** - Revenue and profit analysis
 
 ### 🔐 **Security Features**
+
 - **CSRF Protection** - Cross-site request forgery prevention
 - **XSS Prevention** - Input sanitization and output encoding
 - **Session Security** - Secure session management with timeouts
@@ -61,6 +65,7 @@ A comprehensive, **mobile-responsive** pharmacy management system built with PHP
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - PHP 8.0 or higher
 - MySQL 8.0 or higher
 - Web server (Apache/Nginx) or PHP built-in server
@@ -68,34 +73,38 @@ A comprehensive, **mobile-responsive** pharmacy management system built with PHP
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/Aflah-Dev/Haramaya-Pharma.git
    cd Haramaya-Pharma
    ```
 
 2. **Set up the database**
+
    ```bash
    # Create database
    mysql -u root -p -e "CREATE DATABASE haramaya_pharma CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-   
+
    # Import schema
    mysql -u root -p haramaya_pharma < schema.sql
    ```
 
 3. **Configure environment**
+
    ```bash
    # Copy environment file
    cp .env.example .env
-   
+
    # Edit database credentials
    nano .env
    ```
 
 4. **Start the application**
+
    ```bash
    # Using PHP built-in server
    php -S localhost:8000
-   
+
    # Or configure your web server to point to the project directory
    ```
 
@@ -106,18 +115,21 @@ A comprehensive, **mobile-responsive** pharmacy management system built with PHP
 ## 📱 Mobile Experience
 
 ### Desktop View
+
 - Full sidebar navigation
 - Multi-column layouts
 - Comprehensive data tables
 - Advanced form layouts
 
 ### Mobile View
+
 - Hamburger menu navigation
 - Single-column responsive layout
 - Card-style data presentation
 - Touch-optimized forms and buttons
 
 ### Testing Mobile Responsiveness
+
 - **Mobile Debug Page**: `/mobile-debug.php`
 - **Mobile Test Page**: `/mobile-test.php`
 - **POS Mobile Test**: `/mobile-pos-test.html`
@@ -125,6 +137,7 @@ A comprehensive, **mobile-responsive** pharmacy management system built with PHP
 ## 🏗️ Architecture
 
 ### Directory Structure
+
 ```
 📁 Haramaya-Pharma/
 ├── 📄 index.php                 # Main entry point
@@ -156,6 +169,7 @@ A comprehensive, **mobile-responsive** pharmacy management system built with PHP
 ```
 
 ### Database Schema
+
 - **users** - User accounts and roles
 - **products** - Product catalog
 - **product_categories** - Product categorization
@@ -178,6 +192,7 @@ A comprehensive, **mobile-responsive** pharmacy management system built with PHP
 ## 📊 Features Overview
 
 ### Point of Sale (POS)
+
 - Real-time product search
 - Shopping cart functionality
 - Multiple payment methods (Cash, Card, Mobile Money)
@@ -186,6 +201,7 @@ A comprehensive, **mobile-responsive** pharmacy management system built with PHP
 - FEFO batch allocation
 
 ### Dashboard
+
 - Key performance indicators
 - Recent sales overview
 - Expiry alerts
@@ -193,6 +209,7 @@ A comprehensive, **mobile-responsive** pharmacy management system built with PHP
 - Quick action buttons
 
 ### Inventory Management
+
 - Product catalog with categories
 - Batch tracking with expiry dates
 - Stock level monitoring
@@ -200,6 +217,7 @@ A comprehensive, **mobile-responsive** pharmacy management system built with PHP
 - Stock adjustment tracking
 
 ### User Roles
+
 - **Admin**: Full system access
 - **Pharmacist**: Inventory and sales management
 - **Cashier**: POS and basic inventory view
@@ -207,6 +225,7 @@ A comprehensive, **mobile-responsive** pharmacy management system built with PHP
 ## 🔧 Configuration
 
 ### Environment Variables (.env)
+
 ```env
 # Database Configuration
 DB_HOST=127.0.0.1
@@ -221,6 +240,7 @@ SESSION_TIMEOUT=3600
 ```
 
 ### Default Users
+
 - **Username**: `admin`
 - **Password**: `admin123`
 - **Role**: Administrator
@@ -228,6 +248,7 @@ SESSION_TIMEOUT=3600
 ## 📱 Mobile Optimization
 
 ### Responsive Breakpoints
+
 - **Desktop**: 1200px+
 - **Laptop**: 1024px+
 - **Tablet**: 768px+
@@ -235,6 +256,7 @@ SESSION_TIMEOUT=3600
 - **Small Mobile**: 360px+
 
 ### Mobile Features
+
 - Touch-friendly buttons (44px minimum)
 - Swipe-friendly tables
 - Mobile keyboard optimization
@@ -244,6 +266,7 @@ SESSION_TIMEOUT=3600
 ## 🧪 Testing
 
 ### Manual Testing
+
 ```bash
 # Database verification
 php database_check.php
@@ -254,6 +277,7 @@ php database_check.php
 ```
 
 ### Browser Testing
+
 - Chrome (Desktop & Mobile)
 - Safari (iOS & macOS)
 - Firefox (Desktop & Mobile)
@@ -281,6 +305,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For support and questions:
+
 - Create an issue on GitHub
 - Check the documentation in `/docs`
 - Review the mobile testing pages

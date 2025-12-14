@@ -7,7 +7,247 @@ $page_title = 'Manage Suppliers';
 $pdo = require __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../templates/header.php';
 require_role('admin');
+?>
+<style>
+/* Suppliers Management Specific Styles */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    border: none;
+    overflow: hidden;
+    background: #ffffff;
+}
 
+.card-header {
+    background: linear-gradient(135deg, #4A6FA5 0%, #2C3E50 100%);
+    color: white;
+    padding: 20px 25px;
+    border-bottom: none;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-title:before {
+    content: "🏥";
+    font-size: 1.3rem;
+}
+
+.form-group {
+    margin-bottom: 0;
+    position: relative;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #2C3E50;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    display: block;
+}
+
+.form-control {
+    border: 2px solid #E8EDF2;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: #F8FAFC;
+    width: 100%;
+}
+
+.form-control:focus {
+    border-color: #4A6FA5;
+    box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.15);
+    background: white;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #4A6FA5;
+}
+
+textarea.form-control {
+    min-height: 85px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4A6FA5 0%, #3498DB 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+    background: linear-gradient(135deg, #3A5A95 0%, #2980B9 100%);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.table-container {
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+}
+
+.data-table thead {
+    background: linear-gradient(135deg, #F8FAFC 0%, #E8EDF2 100%);
+}
+
+.data-table th {
+    padding: 18px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #2C3E50;
+    border-bottom: 2px solid #E8EDF2;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.data-table td {
+    padding: 15px;
+    border-bottom: 1px solid #F1F5F9;
+    vertical-align: middle;
+    background: white;
+    transition: background 0.2s ease;
+}
+
+.data-table tbody tr:hover td {
+    background: #F8FAFC;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badge-info {
+    background: rgba(52, 152, 219, 0.1);
+    color: #2980B9;
+    border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    cursor: pointer;
+    accent-color: #4A6FA5;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #4A6FA5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-header {
+        padding: 15px 20px;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Status indicator */
+.data-table tbody tr td:last-child {
+    position: relative;
+}
+
+.data-table tbody tr td:last-child:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #27AE60;
+    border-radius: 0 4px 4px 0;
+}
+
+.data-table tbody tr input[type="checkbox"]:not(:checked) ~ * td:last-child:before {
+    background: #E74C3C;
+}
+
+/* Form grid enhancement */
+form[style*="grid-template-columns"] {
+    padding: 25px;
+    gap: 20px !important;
+}
+
+/* Required field indicator */
+.form-control[required] {
+    background-image: linear-gradient(45deg, transparent 95%, #E74C3C 95%);
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 8px 8px;
+}
+
+/* Placeholder styling */
+::placeholder {
+    color: #A0AEC0;
+    opacity: 1;
+}
+
+/* Focus states for accessibility */
+.form-control:focus-visible {
+    outline: 2px solid #4A6FA5;
+    outline-offset: 2px;
+}
+</style>
+
+<?php
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!verify_csrf_token($_POST['csrf_token'] ?? '')) {
