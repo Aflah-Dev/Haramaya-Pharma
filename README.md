@@ -1,3 +1,20 @@
+# THIS PROJECT IS DONE BY GROUP THREE MEMBERS
+# GROUP NAME           ID           Username
+# Abdurahman kedir     0494/16       @abdikee
+# kedeflah Nure        1724/16       @Aflah-Dev
+# Abdulhefiz Worko     0470/16
+# Mulu Beshada         2093/16
+# Ana Umer             0706/16
+
+
+
+
+
+
+
+
+
+
 # 🏥 Haramaya Pharmacy Management System
 
 A comprehensive, **mobile-responsive** pharmacy management system built with PHP and MySQL. Designed for modern pharmacies with complete inventory management, point of sale, and administrative features. 

@@ -1,7 +1,9 @@
 <?php
-/**
+/*
  * HARAMAYA PHARMA - Product Management
  */
+
+// Error reporting disabled for production
 
 $page_title = 'Manage Products';
 $pdo = require __DIR__ . '/../../config/database.php';
@@ -24,19 +26,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $category_id = (int)$_POST['category_id'];
         $dosage_form = sanitize_input($_POST['dosage_form']);
         $strength = sanitize_input($_POST['strength']);
-        $manufacturer = sanitize_input($_POST['manufacturer']);
         $unit_price = (float)$_POST['unit_price'];
         $reorder_level = (int)$_POST['reorder_level'];
         
         try {
             $stmt = $pdo->prepare("
                 INSERT INTO products (product_code, product_name, generic_name, category_id, 
-                                     dosage_form, strength, manufacturer, unit_price, reorder_level)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                                     dosage_form, strength, unit_price, reorder_level)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             ");
             $stmt->execute([
                 $product_code, $product_name, $generic_name, $category_id,
-                $dosage_form, $strength, $manufacturer, $unit_price, $reorder_level
+                $dosage_form, $strength, $unit_price, $reorder_level
             ]);
             
             log_security_event($pdo, $current_user['user_id'], 'PRODUCT_ADDED', "Product: $product_name");
@@ -61,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$unit_price, $reorder_level, $is_active, $product_id]);
         
         log_security_event($pdo, $current_user['user_id'], 'PRODUCT_UPDATED', "Product ID: $product_id");
-        header('Location: manage.php');
+        echo "<script>alert('Product updated successfully!'); window.location='manage.php';</script>";
         exit;
     }
 }
@@ -130,11 +131,6 @@ $products = $pdo->query("
         </div>
         
         <div class="form-group">
-            <label class="form-label">Manufacturer</label>
-            <input type="text" name="manufacturer" class="form-control">
-        </div>
-        
-        <div class="form-group">
             <label class="form-label">Unit Price (ETB) *</label>
             <input type="number" step="0.01" name="unit_price" class="form-control" required>
         </div>
@@ -187,14 +183,15 @@ $products = $pdo->query("
                                <?php echo clean($product['strength']); ?></small>
                     </td>
                     <td><?php echo clean($product['category_name'] ?: 'N/A'); ?></td>
+                <form method="POST" style="display: contents;">
+                    <?php echo csrf_field(); ?>
+                    <input type="hidden" name="action" value="update">
+                    <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
+                    
                     <td>
-                        <form method="POST" style="display: inline;">
-                            <?php echo csrf_field(); ?>
-                            <input type="hidden" name="action" value="update">
-                            <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
-                            <input type="number" step="0.01" name="unit_price" 
-                                   value="<?php echo $product['unit_price']; ?>" 
-                                   style="width: 100px;" class="form-control">
+                        <input type="number" step="0.01" name="unit_price" 
+                               value="<?php echo $product['unit_price']; ?>" 
+                               style="width: 100px;" class="form-control">
                     </td>
                     <td>
                         <span class="badge <?php echo $product['total_stock'] > $product['reorder_level'] ? 'badge-success' : 'badge-warning'; ?>">
@@ -213,8 +210,8 @@ $products = $pdo->query("
                         <button type="submit" class="btn btn-primary" style="padding: 0.25rem 0.5rem;">
                             <i class="fas fa-save"></i> Save
                         </button>
-                        </form>
                     </td>
+                </form>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
