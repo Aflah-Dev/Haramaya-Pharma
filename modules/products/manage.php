@@ -1,7 +1,8 @@
 <?php
-/*
- * HARAMAYA PHARMA - Product Management
- */
+
+
+//HARAMAYA PHARMA - Product Management
+
 
 // Error reporting disabled for production
 
