@@ -1,9 +1,9 @@
 <?php
-/**
- * HARAMAYA PHARMA - Add Medicines to Stock
- * 
- * This script adds 50+ medicines with stock batches to the database
- */
+
+
+//HARAMAYA PHARMA - Add Medicines to Stock
+
+//This script adds 50+ medicines with stock batches to the database
 
 echo "Adding medicines to Haramaya Pharma stock...\n";
 
