@@ -1,7 +1,7 @@
 <?php
-/**
- * HARAMAYA PHARMA - Expiry Report
- */
+
+//HARAMAYA PHARMA - Expiry Report
+ 
 
 $page_title = 'Expiry Report';
 $pdo = require __DIR__ . '/../../config/database.php';
