@@ -1,18 +1,21 @@
-# THIS PROJECT IS DONE BY GROUP FIVE MEMBERS
-# GROUP NAME           ID           Username
-# Abdurahman kedir     0494/16       @abdikee
-# kedeflah Nure        1724/16       @Aflah-Dev
-# Abdulhefiz Worko     0470/16       
-# Mulu Beshada         2093/16       @mulu31
-# Ana Umer             0706/16
+## 👥 Project Contributors — Group Five
 
+This project was collaboratively developed by **Group Five**.  
+Each member actively contributed to the design, development, and completion of the project.
 
+### 📌 Team Members
 
+| Name               | ID        | GitHub Username |
+|--------------------|-----------|-----------------|
+| Abdurahman Kedir   | 0494/16   | [@abdikee](https://github.com/abdikee) |
+| Kedeflah Nure      | 1724/16   | [@Aflah-Dev](https://github.com/Aflah-Dev) |
+| Abdulhefiz Worko   | 0470/16   | [@abwa](https://github.com/abwa) |
+| Mulu Beshada       | 2093/16   | [@mulu31](https://github.com/mulu31) |
+| Ana Umer           | 0706/16   | [@ana-umer](https://github.com/ana-umer) |
 
+---
 
-
-
-
+> Built with teamwork, responsibility, and shared learning 🤝
 
 
 # 🏥 Haramaya Pharmacy Management System
@@ -100,8 +103,8 @@ A comprehensive, **mobile-responsive** pharmacy management system built with PHP
    ```
 
 5. **Access the application**
-   - Open: http://localhost:8000
-   - Login: `admin` / `admin123`
+   - Open: haramaya-pharma.kesug.com
+   - Login: `admin` / `Admin@123`
 
 ## 📱 Mobile Experience
 
@@ -222,7 +225,7 @@ SESSION_TIMEOUT=3600
 
 ### Default Users
 - **Username**: `admin`
-- **Password**: `admin123`
+- **Password**: `Admin@123`
 - **Role**: Administrator
 
 ## 📱 Mobile Optimization
