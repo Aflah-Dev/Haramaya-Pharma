@@ -1,3 +1,4 @@
+
 /**
  * HARAMAYA PHARMA - Main Application JavaScript
  * Global functions and utilities
