@@ -1,8 +1,7 @@
 <?php
-/**
- * HARAMAYA PHARMA - Pharmacist Management
- * Manage Pharmacist accounts
- */
+
+// HARAMAYA PHARMA - Pharmacist Management
+//Manage Pharmacist accounts
 
 $page_title = 'Pharmacist Management';
 $pdo = require __DIR__ . '/../../config/database.php';
