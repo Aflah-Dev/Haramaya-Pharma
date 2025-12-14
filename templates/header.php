@@ -1,7 +1,7 @@
 <?php
-/**
- * HARAMAYA PHARMA - Common Header Template
- */
+ 
+// HARAMAYA PHARMA - Common Header Template
+
 if (session_status() === PHP_SESSION_NONE) {
     require_once __DIR__ . '/../includes/security.php';
     secure_session_start();

@@ -1,7 +1,6 @@
 <?php
-/**
- * HARAMAYA PHARMA - Sidebar Navigation
- */
+ 
+// HARAMAYA PHARMA - Sidebar Navigation
 $current_page = basename($_SERVER['PHP_SELF']);
 // Determine base path relative to current module
 $base = '../..';

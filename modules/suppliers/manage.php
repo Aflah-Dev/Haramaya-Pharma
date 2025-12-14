@@ -1,7 +1,7 @@
 <?php
-/*
- * HARAMAYA PHARMA - Suppliers Management
- */
+
+//HARAMAYA PHARMA - Suppliers Management
+
 
 $page_title = 'Manage Suppliers';
 $pdo = require __DIR__ . '/../../config/database.php';

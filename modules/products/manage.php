@@ -1,6 +1,12 @@
 <?php
 
+<<<<<<< HEAD
 // HARAMAYA PHARMA - Product Management
+=======
+
+//HARAMAYA PHARMA - Product Management
+
+>>>>>>> 7ddf9f160d278afb6c263bf3cf3ae7802d4552e0
 
 // Error reporting disabled for production
 

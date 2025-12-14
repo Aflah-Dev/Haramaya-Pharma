@@ -4,6 +4,7 @@
  * Manage Cashier accounts
  */
 
+
 $page_title = 'Cashier Management';
 $pdo = require __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../templates/header.php';
