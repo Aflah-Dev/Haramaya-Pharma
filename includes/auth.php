@@ -174,3 +174,4 @@ function logout_user($pdo) {
     $_SESSION = [];
     session_destroy();
 }
+

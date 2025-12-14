@@ -50,6 +50,7 @@ function send_critical_alert($pdo, $alert_type, $details) {
         'pharmacist@haramayapharma.com'
     ]);
     
+    
     // Log to activity log
     log_security_event($pdo, null, 'CRITICAL_ALERT_SENT', $message);
 }
