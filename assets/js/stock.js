@@ -1,3 +1,4 @@
+
 /**
  * HARAMAYA PHARMA - Stock Management JavaScript
  * Real-time search and filtering
