@@ -1,9 +1,9 @@
 <?php
-/**
- * HARAMAYA PHARMA - Main Entry Point
- * Admin/Staff Pharmacy Management System
- * Redirects to appropriate page based on authentication status
- */
+
+//HARAMAYA PHARMA - Main Entry Point
+// Admin/Staff Pharmacy Management System
+// Redirects to appropriate page based on authentication status
+
 
 require_once __DIR__ . '/includes/security.php';
 require_once __DIR__ . '/includes/auth.php';
