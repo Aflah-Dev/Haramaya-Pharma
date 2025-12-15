@@ -1,4 +1,4 @@
-## 👥 Project Contributors — Group Five
+## 👥 Project Contributors — Group OF Five
 
 This project was collaboratively developed by **Group Five**.  
 Each member actively contributed to the design, development, and completion of the project.
